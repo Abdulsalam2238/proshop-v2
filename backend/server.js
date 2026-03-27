@@ -1,6 +1,9 @@
 import path from 'path';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
+
+
 
 // ✅ Load .env correctly (VERY IMPORTANT)
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -20,6 +23,8 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 connectDB();
 
 const app = express();
+app.use(cors());
+
 
 // Middleware
 app.use(express.json());
